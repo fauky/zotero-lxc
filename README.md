@@ -1,4 +1,4 @@
-## Selfhost Zotero Dataserver and Web Library in Proxmox LXC Container
+## Zotero Dataserver and Web Library in Proxmox LXC Container
 
 ## About
 This repository contains a single script for selfhosting zotero backend services in an all-in-one LXC container. It has been tested in an Ubuntu 24.04 LXC on Proxmox.
