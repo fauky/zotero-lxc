@@ -41,6 +41,15 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/fauky/zotero-lxc/main/zo
 ### User Input During Installation
 The script prompts for the following information right in the beginning:
 
+#### Domain
+Domain name is hard-coded in zotero sources and cannot be changed easily after installation. Therefore, it is important to make the right choice here.
+
+If you have a public domain name and would like to host zotero behind a reverse proxy like caddy or nginx, please use your actual domain name here.
+
+If you are hosting it locally, you can either use the suggested hostname as domain, provide a domain name manually, or even choose the IP address of the server as the domain. If you choose the hostname or provide a domain name, you would either have to set up your own DNS server in your local LAN environment, or create entries in `/etc/hosts` or `C:\Windows\System32\drivers\etc\hosts` files on each Linux and Windows system that you would access this server from.
+
+Choosing IP address as a domain name makes it easy for the desktop clients to connect to your server since you wouldn't need to set up a local DNS server or create hosts file entries. Please do make sure to set up a static IP address on the server prior to install. The script will still generate self-signed certificate for the chosen IP address, and everything will still work seamlessly.
+
 #### Protocol
 This can either be HTTP or HTTPS, but once everything is installed, it cannot be changed easily since it is hard-coded in many places in zotero source code, therefore, choose wisely.
 
@@ -53,15 +62,6 @@ You can also select HTTPS even if you are hosting it locally and do not have a p
 Web Browsers will raise a warning for self-signed certificates when you access your Web Library via HTTPS for the first time, but it will also allow you to add an exception.
 
 Zotero Desktop Clients do not provide a method to accept self-signed certificates at runtime. The clients require placing of a **cert_override.txt** file in the client's profile directory with the signature of the generated self-signed certificate to allow it to work with self-signed certificates. This script, fortunately, also generates additional scripts (mentioned below) which take care of this step automatically.
-
-#### Domain
-Domain name is also hard-coded in zotero sources and cannot be changed easily after installation. Therefore, it is important to make the right choice here.
-
-If you have a public domain name and would like to host zotero behind a reverse proxy like caddy or nginx, please use your actual domain name here.
-
-If you are hosting it locally, you can either use the suggested hostname as domain, provide a domain name manually, or even choose the IP address of the server as the domain. If you choose the hostname or provide a domain name, you would either have to set up your own DNS server in your local LAN environment, or create entries in `/etc/hosts` or `C:\Windows\System32\drivers\etc\hosts` files on each Linux and Windows system that you would access this server from.
-
-Choosing IP address as a domain name makes it easy for the desktop clients to connect to your server since you wouldn't need to set up a local DNS server or create hosts file entries. Please do make sure to set up a static IP address on the server prior to install. The script will still generate self-signed certificate for the chosen IP address, and everything will still work seamlessly.
 
 #### User Name and Password
 The script also asks for username and password to create the first local account. This set of credentials can be used to login to web library as well as desktop clients to sync with this server.
