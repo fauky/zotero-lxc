@@ -1201,6 +1201,9 @@ create_apache_config() {
 
 # Dataserver
 <VirtualHost *:${api_port}>
+    ErrorLog ${apache_logs_dir}/dataserver-error.log
+    CustomLog ${apache_logs_dir}/dataserver-access.log combined
+
     DocumentRoot ${install_dir}/dataserver/htdocs
 
     <Directory ${install_dir}/dataserver/htdocs>
