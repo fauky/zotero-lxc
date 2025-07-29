@@ -512,7 +512,7 @@ initialize_database() {
   mysql -e "INSERT INTO zotero_shard_2.shardLibraries (libraryID, libraryType) VALUES (2, 'group');"
 
   mysql -e "INSERT INTO zotero_www.storage_institutions (institutionID, domain, storageQuota) VALUES (1, '${domain}', 1000000);"
-  mysql -e "INSERT INTO zotero_www.storage_institution_email (institutionID, email) VALUES (1, 'contact@${domain}');"
+  mysql -e "INSERT INTO zotero_www.storage_institution_email (institutionID, email) VALUES (1, 'user_name@${domain}');"
 
   # create first user account
   mysql -e "INSERT INTO zotero_www.users (userID, username, password) VALUES (1, '${user_name}', MD5('${user_password}'));"
